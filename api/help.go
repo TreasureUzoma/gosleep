@@ -5,7 +5,7 @@ import (
 	"net/http"
 )
 
-const htmlTemplate = `
+const HelpHtmlTemplate = `
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -200,8 +200,8 @@ const htmlTemplate = `
 </html>
 `
 
-func Handler(w http.ResponseWriter, r *http.Request) {
-	tmpl, err := template.New("page").Parse(htmlTemplate)
+func HelpHandler(w http.ResponseWriter, r *http.Request) {
+	tmpl, err := template.New("page").Parse(HelpHtmlTemplate)
 	if err != nil {
 		http.Error(w, "Template parsing error: "+err.Error(), http.StatusInternalServerError)
 		return
